@@ -1,0 +1,8 @@
+playwright==1.54.0
+requests==2.32.4
+python-telegram-bot==22.2
+PyYAML==6.0.2
+python-dateutil==2.9.0.post0
+beautifulsoup4==4.13.4
+lxml==6.0.0
+pandas==2.3.1

@@ -1,0 +1,56 @@
+telegram:
+  token: ""
+  chat_id: ""
+
+schedule:
+  cron: "0 8 * * *"   # Her gün 08:00 UTC, daha sonra Türkiye saatine göre ayarlayacağız.
+
+search:
+  start_date: "2026-11-01"
+  end_date: "2026-12-31"
+
+  cabin: economy
+  adults: 1
+  direct_only: true
+
+origins:
+  - IST
+  - SAW
+
+destinations:
+
+  - city: Bangkok
+    airport: BKK
+    max_price: 15000
+
+  - city: Phuket
+    airport: HKT
+    max_price: 15000
+
+  - city: Kuala Lumpur
+    airport: KUL
+    max_price: 11000
+
+  - city: Singapore
+    airport: SIN
+    max_price: 15000
+
+  - city: Tokyo
+    airport: HND
+    max_price: 18000
+
+  - city: Osaka
+    airport: KIX
+    max_price: 18000
+
+  - city: Seoul
+    airport: ICN
+    max_price: 18000
+
+  - city: Hanoi
+    airport: HAN
+    max_price: 15000
+
+  - city: Ho Chi Minh
+    airport: SGN
+    max_price: 15000

@@ -1,42 +1,24 @@
-import yaml
-from pathlib import Path
+import os
+import requests
 
 
-CONFIG_FILE = Path("config.yaml")
+def send_test_message():
+    token = os.environ["TELEGRAM_BOT_TOKEN"]
+    chat_id = os.environ["TELEGRAM_CHAT_ID"]
 
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
 
-def load_config():
-    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+    response = requests.post(
+        url,
+        json={
+            "chat_id": chat_id,
+            "text": "✅ Flight Tracker çalışıyor."
+        },
+        timeout=30
+    )
 
-
-def main():
-
-    config = load_config()
-
-    print("=" * 50)
-    print("Flight Tracker Started")
-    print("=" * 50)
-
-    print()
-
-    print("Origins:")
-
-    for airport in config["origins"]:
-        print("-", airport)
-
-    print()
-
-    print("Destinations")
-
-    for city in config["destinations"]:
-
-        print(
-            city["city"],
-            city["airport"],
-            city["max_price"]
-        )
+    response.raise_for_status()
 
 
 if __name__ == "__main__":
-    main()
+    send_test_message()

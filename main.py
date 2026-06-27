@@ -1,24 +1,24 @@
-import os
-import requests
+from search import build_search_list
 
 
-def send_test_message():
-    token = os.environ["TELEGRAM_BOT_TOKEN"]
-    chat_id = os.environ["TELEGRAM_CHAT_ID"]
+def main():
 
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    searches = build_search_list()
 
-    response = requests.post(
-        url,
-        json={
-            "chat_id": chat_id,
-            "text": "✅ Flight Tracker çalışıyor."
-        },
-        timeout=30
-    )
+    print()
 
-    response.raise_for_status()
+    print("Toplam Arama Sayısı :", len(searches))
+
+    print()
+
+    print("İlk 10 Arama")
+
+    print("----------------")
+
+    for search in searches[:10]:
+
+        print(search)
 
 
 if __name__ == "__main__":
-    send_test_message()
+    main()
